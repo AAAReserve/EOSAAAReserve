@@ -33,7 +33,9 @@ Once the funds are received, the administration system is updated with the new v
 
 ### Smart Contract
 
-The smart contract featuring in this repository is based on eosio.token code. It has been altered to allow the changing of the max_supply value which represents the maximum number of tokens allowed in circulation and the burning of tokens to remove them from circulation. This change makes the operation of the stable coin possible by allowing the permitted circulation to vary in line with the assets held that back it, in this case the basket of currency. As such it has the addition of 2 new funcitons over the original contract setmaxsupply() and burn().
+The smart contract featuring in this repository is based on eosio.token code. It has been altered to allow the changing of the max_supply value which represents the maximum number of tokens allowed in circulation and the burning of tokens to remove them from circulation. This change makes the operation of the stable coin possible by allowing the permitted circulation to vary in line with the assets held that back it, in this case the basket of currency. As such it has the addition of 2 new functions over the original contract setmaxsupply() and burn().
+
+The contract will be deployed using a multisignatory EOS wallet functions to issue and brun will require a minimum of 3 signatories.
 
 Once created the following command creates the AAA reservetoken with a maximum circulation of 1.0000 AAA.
 ```sh
@@ -59,3 +61,13 @@ The following call burns the transferred 1,000 AAA from the contract owner accou
 ```sh
 cleos push action reservetoken burn '["1000.0000 AAA"]' -p reservetoken
 ```
+
+## Future development
+
+### Decentralised Governance
+
+We will release in the coming weeks a voting contract to allow holders of the AAA Reserve token to vote on issues relating to the coin. Our aim is to have a board member voted in by the holders of the coin, who will represent the community and its interest directly on the board of trustees.
+
+### Decentralised exchange
+
+To convert EOS to AAA we have implemented an over the counter exchange called buycrypto.ltd. The next generation of this will be a smart contract credited with both AAA and EOS to allow fast exchanges based on the current NAV rate.
